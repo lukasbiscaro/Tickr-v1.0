@@ -15,6 +15,7 @@ from .serializers import EventSerializer
 import json
 
 
+
 class eventView:
     @api_view(["GET"])
     def get_events(request):

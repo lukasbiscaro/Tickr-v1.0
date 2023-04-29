@@ -16,11 +16,11 @@ const Tab = createBottomTabNavigator()
 export const StackNavigator = () => {
 
     const globalContext = useContext(Context)
-    const { isLoggedIn } = globalContext;
+    const { isLoggedIn, userObject } = globalContext;
 
     return (
         <Stack.Navigator>
-            {(!isLoggedIn) ?
+            {(!isLoggedIn) || (!userObject) ?
                 <>
                     <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
                     <Stack.Screen name="Evento" component={Event} options={{ headerShown: false }} />

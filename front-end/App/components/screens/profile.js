@@ -1,9 +1,8 @@
 import { ScrollView, View, Image, Text } from 'react-native'
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Context } from "../globalContext/globalContext.js";
 import { Avatar } from '../../assets/index'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import axios from 'axios'
 import { useNavigation } from '@react-navigation/native'
 
 const Profile = () => {
@@ -11,17 +10,7 @@ const Profile = () => {
     const navigation = useNavigation()
 
     const globalContext = useContext(Context)
-    const { domain, setIsLoggedIn } = globalContext;
-
-    const [userData, setUserData] = useState([])
-
-    // useEffect(() => {
-    //     axios.get(`${domain}users/`)
-    //         .then(response => {
-    //             setUserData(response.data[0])
-    //         })
-    //         .catch(err => console.log(err))
-    // }, []);
+    const { setIsLoggedIn, userObject } = globalContext;
 
     const handleExit = () => {
         navigation.navigate('Home');
@@ -42,14 +31,14 @@ const Profile = () => {
                         />
                     </View>
                     {
-                        userData && (
+                        userObject && (
                             <>
                                 <View className="flex-col gap-y-2">
                                     <Text className="text-2xl text-white font-semibold">
-                                        {userData.user_name}
+                                        {userObject.username}
                                     </Text>
                                     <Text className="text-lowGray font-light">
-                                        {userData.user_email}
+                                        {userObject.email}
                                     </Text>
                                 </View>
                             </>

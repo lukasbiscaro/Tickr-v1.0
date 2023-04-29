@@ -3,7 +3,6 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Context } from "../globalContext/globalContext.js";
 import { useNavigation } from '@react-navigation/native'
 import { Avatar, CasaDeShow, TheTown } from '../../assets/index'
-// import styles from '../data/styles'
 import axios from 'axios'
 
 const Home = () => {
@@ -13,11 +12,20 @@ const Home = () => {
 
     const navigation = useNavigation()
 
+    const [genreData, setGenreData] = useState([])
     const [eventsData, setEventsData] = useState([])
     const [localsData, setLocalsData] = useState([])
     const [eventsLoading, setEventsLoading] = useState(false)
     const [localsLoading, setLocalsLoading] = useState(false)
-    const [bannerLoadin, setBannerLoading] = useState(false)
+    const [bannerLoading, setBannerLoading] = useState(false)
+
+    useEffect(() => {
+        axios.get(`${domain}genre/`)
+            .then(response => {
+                setGenreData(response.data)
+            })
+            .catch(err => console.log(err))
+    }, [])
 
     useEffect(() => {
         axios.get(`${domain}event/`)
@@ -67,14 +75,14 @@ const Home = () => {
                     <ScrollView
                         showsHorizontalScrollIndicator={false}
                         horizontal={true}>
-                        {/* {
-                            styles.map(style => (
+                        {
+                            genreData.length > 0 && genreData.map((genre) => (
                                 <TouchableOpacity
                                     className="mt-2 ml-4 justify-center align-middle bg-mainPurple w-24 h-9 rounded shadow-sm shadow-black">
-                                    <Text className="text-center text-lg text-white font-semibold">{style.name}</Text>
+                                    <Text className="text-center text-lg text-white font-semibold">{genre.genre}</Text>
                                 </TouchableOpacity>
                             ))
-                        } */}
+                        }
                     </ScrollView>
                 </View>
                 <View>
@@ -87,7 +95,7 @@ const Home = () => {
                             showsHorizontalScrollIndicator={false}
                             horizontal={true}>
                             {
-                                bannerLoadin
+                                bannerLoading
                                     ?
                                     eventsData.length > 0 && eventsData.slice(0, 8).map((event) => {
                                         return (

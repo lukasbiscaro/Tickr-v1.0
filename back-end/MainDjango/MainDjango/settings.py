@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'userAPI',
     'eventAPI',
-    'localAPI'
+    'localAPI',
+    'musicalGenre'
 ]
 
 MIDDLEWARE = [

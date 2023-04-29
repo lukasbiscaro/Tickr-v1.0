@@ -10,6 +10,7 @@ module.exports = {
         'lowGray': '#8D8D99',
         'mediumGray': '#202024',
         'darkGray': '#121214',
+        'dangerRed': '#CC2937'
       },
     },
   },

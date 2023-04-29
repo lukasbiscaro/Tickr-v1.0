@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Context } from "../globalContext/globalContext.js";
 import { Avatar, TheTown } from '../../assets/index'
 import MapView, { Marker } from 'react-native-maps';
-// import artists from '../data/artists'
+// import artists from '../data/artists' ---- Update with events (Line-up Example)
 import axios from 'axios';
 import { useRoute } from '@react-navigation/native';
 
