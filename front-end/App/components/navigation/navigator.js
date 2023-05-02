@@ -8,6 +8,7 @@ import Local from '../screens/local.js'
 import Profile from '../screens/profile.js'
 import ticket from '../screens/ticket.js'
 import Edit_Profile from '../screens/edit_profile.js'
+import All_Events from '../screens/all_events.js'
 import { Context } from "../globalContext/globalContext.js"
 import { Foundation, FontAwesome5, FontAwesome } from '@expo/vector-icons'
 
@@ -26,6 +27,7 @@ export const StackNavigator = () => {
                     <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
                     <Stack.Screen name="Evento" component={Event} options={{ headerShown: false }} />
                     <Stack.Screen name="Local" component={Local} options={{ headerShown: false }} />
+                    <Stack.Screen name="Todos Eventos" component={All_Events} options={{ headerShown: false }} />
                     <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
                 </>
                 :
@@ -33,6 +35,7 @@ export const StackNavigator = () => {
                     <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
                     <Stack.Screen name="Evento" component={Event} options={{ headerShown: false }} />
                     <Stack.Screen name="Local" component={Local} options={{ headerShown: false }} />
+                    <Stack.Screen name="Todos Eventos" component={All_Events} options={{ headerShown: false }} />
                     <Stack.Screen name="Perfil" component={Profile} options={{ headerShown: false }} />
                     <Stack.Screen name="Editar Perfil" component={Edit_Profile} options={{ headerShown: false }} />
                 </>

@@ -88,7 +88,9 @@ const Home = () => {
                 <View>
                     <View className="flex-row items-center justify-between">
                         <Text className="mt-10 ml-4 mb-4 text-xl text-mainPurple font-semibold uppercase">Próximos Eventos</Text>
-                        <Text className="mt-10 mr-4 mb-4 text-sm text-mainPurple font-light underline">Ver Todos</Text>
+                        <TouchableOpacity>
+                            <Text className="mt-10 mr-4 mb-4 text-sm text-mainPurple font-light underline">Ver Todos</Text>
+                        </TouchableOpacity>
                     </View>
                     <View className="h-36 w-full flex justify-center items-center">
                         <ScrollView
@@ -119,7 +121,10 @@ const Home = () => {
                 <View>
                     <View className="flex-row items-center justify-between">
                         <Text className="mt-16 ml-4 mb-4 text-xl text-mainPurple font-light uppercase">Rolando <Text className="font-semibold">Hoje</Text></Text>
-                        <Text className="mt-16 mr-4 mb-4 text-sm text-mainPurple font-light underline">Ver Todos</Text>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("Todos Eventos")}>
+                            <Text className="mt-16 mr-4 mb-4 text-sm text-mainPurple font-light underline">Ver Todos</Text>
+                        </TouchableOpacity>
                     </View>
                     <View className="h-72 w-full flex justify-center items-center">
                         <ScrollView
@@ -133,15 +138,15 @@ const Home = () => {
                                             <>
                                                 <View
                                                     key={event.id}
-                                                    className="flex-col ml-4">
+                                                    className="flex-col ml-4 h-44 w-40">
                                                     <TouchableOpacity
                                                         onPress={() => navigation.navigate("Evento", { eventId: event.id })}>
                                                         <Image
                                                             source={TheTown}
-                                                            className="h-44 w-40 rounded"
+                                                            className="h-full w-full rounded"
                                                         />
                                                     </TouchableOpacity>
-                                                    <View className="flex-col">
+                                                    <View className="flex-col w-full">
                                                         <Text className="text-white text-lg font-bold mt-3 mb-1">{event.event_name}</Text>
                                                         <View className="flex-col">
                                                             <Text className="text-lowGray text-sm font-light">{event.event_date}</Text>

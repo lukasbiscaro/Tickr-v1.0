@@ -84,7 +84,7 @@ const EventInfo = () => {
                                                             latitude: -23.697427688758005,
                                                             longitude: -46.69988131874373,
                                                         }}
-                                                        title="Av. Sen. Teotônio Vilela, 261 - Interlagos, São Paulo"
+                                                        title={event.event_location}
                                                     />
                                                 </MapView>
                                             </View>
