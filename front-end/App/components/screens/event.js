@@ -1,36 +1,36 @@
 import { View, Text, ScrollView, Image, TouchableOpacity, ActivityIndicator } from 'react-native'
 import React, { useState, useEffect, useContext } from 'react'
-import { Context } from "../globalContext/globalContext.js";
+import { Context } from "../globalContext/globalContext.js"
 import { Avatar, TheTown } from '../../assets/index'
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps'
 // import artists from '../data/artists' ---- Update with events (Line-up Example)
-import axios from 'axios';
-import { useRoute } from '@react-navigation/native';
+import axios from 'axios'
+import { useRoute } from '@react-navigation/native'
 
 const EventInfo = () => {
 
     const globalContext = useContext(Context)
-    const { domain } = globalContext;
+    const { domain } = globalContext
 
-    const route = useRoute();
-    const { eventId } = route.params;
+    const route = useRoute()
+    const { eventId } = route.params
 
-    const [showMore, setShowMore] = useState(false);
+    const [showMore, setShowMore] = useState(false)
     const [eventsData, setEventsData] = useState([])
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         axios.get(`${domain}event/manage/${eventId}`)
             .then(response => {
-                setEventsData([response.data]);
+                setEventsData([response.data])
                 setLoading(true)
             })
             .catch(err => console.log(err))
-    }, [eventId]);
+    }, [eventId])
 
     const toggleShowMore = () => {
-        setShowMore(!showMore);
-    };
+        setShowMore(!showMore)
+    }
 
     return (
         <View className="bg-bgBlack flex-1 relative">

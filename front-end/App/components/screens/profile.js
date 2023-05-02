@@ -1,6 +1,6 @@
 import { ScrollView, View, Image, Text } from 'react-native'
 import React, { useContext } from 'react'
-import { Context } from "../globalContext/globalContext.js";
+import { Context } from "../globalContext/globalContext.js"
 import { Avatar } from '../../assets/index'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
@@ -10,10 +10,10 @@ const Profile = () => {
     const navigation = useNavigation()
 
     const globalContext = useContext(Context)
-    const { setIsLoggedIn, userObject } = globalContext;
+    const { setIsLoggedIn, userObject } = globalContext
 
     const handleExit = () => {
-        navigation.navigate('Home');
+        navigation.navigate('Home')
         setIsLoggedIn(false)
     }
 
@@ -46,6 +46,7 @@ const Profile = () => {
                     }
                 </View>
                 <TouchableOpacity
+                    onPress={() => navigation.navigate('Editar Perfil')}
                     className="mx-4 mt-4 mb-8 h-10 items-center justify-center rounded border bg-mainPurple">
                     <Text className="text-white font-semibold text-md uppercase">Editar</Text>
                 </TouchableOpacity>

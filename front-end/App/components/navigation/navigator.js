@@ -1,22 +1,23 @@
-import React, { useContext } from "react";
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import React, { useContext } from "react"
+import { createStackNavigator } from '@react-navigation/stack'
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import Login from '../screens/login.js'
 import Home from '../screens/home.js'
 import Event from '../screens/event.js'
 import Local from '../screens/local.js'
 import Profile from '../screens/profile.js'
 import ticket from '../screens/ticket.js'
-import { Context } from "../globalContext/globalContext.js";
+import Edit_Profile from '../screens/edit_profile.js'
+import { Context } from "../globalContext/globalContext.js"
 import { Foundation, FontAwesome5, FontAwesome } from '@expo/vector-icons'
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
 
 export const StackNavigator = () => {
 
     const globalContext = useContext(Context)
-    const { isLoggedIn, userObject } = globalContext;
+    const { isLoggedIn, userObject } = globalContext
 
     return (
         <Stack.Navigator>
@@ -33,6 +34,7 @@ export const StackNavigator = () => {
                     <Stack.Screen name="Evento" component={Event} options={{ headerShown: false }} />
                     <Stack.Screen name="Local" component={Local} options={{ headerShown: false }} />
                     <Stack.Screen name="Perfil" component={Profile} options={{ headerShown: false }} />
+                    <Stack.Screen name="Editar Perfil" component={Edit_Profile} options={{ headerShown: false }} />
                 </>
             }
 
@@ -43,7 +45,7 @@ export const StackNavigator = () => {
 export const TabNavigator = () => {
 
     const globalContext = useContext(Context)
-    const { isLoggedIn } = globalContext;
+    const { isLoggedIn } = globalContext
 
     return (
         <Tab.Navigator

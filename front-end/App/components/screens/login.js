@@ -1,13 +1,13 @@
-import React, { useContext, useState } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import React, { useContext, useState } from 'react'
+import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native'
 import { Context } from "../globalContext/globalContext.js"
 import bgLogin from '../../assets/bgLogin.png'
-import axios from 'axios';
+import axios from 'axios'
 
 const Login = () => {
 
     const globalContext = useContext(Context)
-    const { setIsLoggedIn, domain, setUserObject, setToken } = globalContext;
+    const { setIsLoggedIn, domain, setUserObject, setToken } = globalContext
 
     const [securePassword, setSecurePassword] = useState(true)
     const [email, setEmail] = useState()
@@ -39,7 +39,7 @@ const Login = () => {
 
         setError('')
 
-        const lowercaseEmail = email.toLowerCase();
+        const lowercaseEmail = email.toLowerCase()
 
         const config = {
             headers: {
@@ -100,7 +100,7 @@ const Login = () => {
                         <TextInput
                             value={email}
                             onChangeText={handleEmailChange}
-                            className="font-light text-lg text-white mx-10 border border-b-lowGray rounded p-2 placeholder:font-light"
+                            className="font-light text-lg text-white mx-10 border border-t-0 border-x-0 border-b-lowGray rounded p-2 placeholder:font-light"
                             placeholder='exemplo@exemplo.com'
                             autoComplete='email'
                             textContentType='username' />
@@ -111,7 +111,7 @@ const Login = () => {
                         <TextInput
                             value={password}
                             onChangeText={handlePasswordChange}
-                            className="font-light text-lg text-white mx-10 border border-b-lowGray rounded p-2"
+                            className="font-light text-lg text-white mx-10 border border-t-0 border-x-0 border-b-lowGray rounded p-2"
                             placeholder='*******'
                             autoComplete='password'
                             textContentType='password'
@@ -122,8 +122,8 @@ const Login = () => {
                             <>
                                 <TouchableOpacity
                                     disabled
-                                    className="flex items-center justify-center rounded bg-lowGray mx-10 mt-8 h-10">
-                                    <Text className="text-bgBlack font-semibold uppercase">login</Text>
+                                    className="flex items-center justify-center rounded bg-darkGray mx-10 mt-8 h-10">
+                                    <Text className="text-white font-semibold uppercase">login</Text>
                                 </TouchableOpacity>
                             </>
                             :
@@ -140,4 +140,4 @@ const Login = () => {
 
 }
 
-export default Login;
+export default Login

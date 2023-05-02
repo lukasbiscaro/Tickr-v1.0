@@ -9,6 +9,14 @@ from .serializers import UserSerializer
 
 
 class UserView(APIView):
+
+    def get(self, request, format=None):
+
+        locals = User.objects.all()
+        serializer = UserSerializer(locals, many=True)
+
+        return Response(serializer.data)
+
     def post(self, request, format=None):
 
         user_data = request.data

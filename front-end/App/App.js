@@ -1,8 +1,8 @@
-import React from "react";
-import { NavigationContainer } from '@react-navigation/native';
-import { View } from 'react-native';
+import React from "react"
+import { NavigationContainer } from '@react-navigation/native'
+import { View } from 'react-native'
 import { TabNavigator } from './components/navigation/navigator'
-import { Provider } from "./components/globalContext/globalContext.js";
+import { Provider } from "./components/globalContext/globalContext.js"
 
 const App = () => {
 
@@ -18,4 +18,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default App

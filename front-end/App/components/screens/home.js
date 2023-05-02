@@ -1,6 +1,6 @@
 import { View, Text, Image, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native'
 import React, { useState, useEffect, useContext } from 'react'
-import { Context } from "../globalContext/globalContext.js";
+import { Context } from "../globalContext/globalContext.js"
 import { useNavigation } from '@react-navigation/native'
 import { Avatar, CasaDeShow, TheTown } from '../../assets/index'
 import axios from 'axios'
@@ -8,7 +8,7 @@ import axios from 'axios'
 const Home = () => {
 
     const globalContext = useContext(Context)
-    const { domain, isLoggedIn } = globalContext;
+    const { domain, isLoggedIn } = globalContext
 
     const navigation = useNavigation()
 
@@ -48,11 +48,11 @@ const Home = () => {
 
     const handleProfilePress = () => {
         if (!isLoggedIn) {
-            navigation.navigate('Login');
+            navigation.navigate('Login')
         } else {
-            navigation.navigate('Perfil');
+            navigation.navigate('Perfil')
         }
-    };
+    }
 
     return (
         <View className="flex-1 bg-bgBlack relative">
@@ -64,10 +64,10 @@ const Home = () => {
                     </View>
                     <TouchableOpacity
                         onPress={() => handleProfilePress()}
-                        className="w-12 h-12 items-center justify-center">
+                        className="w-14 h-14 bg-darkGray flex justify-center items-center rounded-full">
                         <Image
                             source={Avatar}
-                            className="w-full h-full rounded-full object-cover"
+                            className="w-12 h-12 rounded-full object-cover"
                         />
                     </TouchableOpacity>
                 </View>
